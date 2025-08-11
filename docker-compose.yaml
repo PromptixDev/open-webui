@@ -26,8 +26,8 @@ services:
     environment:
       - OLLAMA_BASE_URL=http://ollama:11434
       - WEBUI_SECRET_KEY=
-      # === Ajoute ta connexion Supabase (pool conseillé, port 6543) ===
-      - DATABASE_URL=postgresql://postgres:<PASSWORD>@<PROJECT>.supabase.co:6543/postgres?sslmode=require
+      # === Connexion Supabase via variable d'environnement ===
+      - DATABASE_URL=${DATABASE_URL}
     extra_hosts:
       - host.docker.internal:host-gateway
     restart: unless-stopped
